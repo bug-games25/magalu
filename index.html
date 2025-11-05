@@ -12,10 +12,10 @@
         <div class="top-bar">
             <i class="fa-solid fa-bars menu-icon"></i>
             <img src="https://omnilogic.com.br/midia/logos/23.png" alt="Logo Magalu" class="logo">
-            <a href="carrinho.html" class="carrinho-icon-container">
+            <div class="carrinho-icon-container" id="open-cart-btn">
                 <i class="fa-solid fa-bag-shopping carrinho-icon"></i>
                 <span class="carrinho-badge" id="carrinho-contador">0</span>
-            </a>
+            </div>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Procure no Magalu">
@@ -30,34 +30,51 @@
             </section>
     </main>
     
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-modal="cart-modal">&times;</span>
+            <h2>Seu Carrinho (<span id="cart-item-count-modal">0</span>)</h2>
+            <div id="cart-items-container" class="cart-items-container">
+                </div>
+
+            <p id="empty-cart-message" class="empty-cart-message" style="display: none;">Seu carrinho está vazio.</p>
+            
+            <div id="cart-summary" class="cart-summary" style="display: none;">
+                <p class="total-line">Total: <span id="total-final">R$ 0,00</span></p>
+                <button id="btn-goto-checkout" class="buy-button">FINALIZAR COMPRA</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content pix-box">
+            <span class="close-button" data-modal="checkout-modal">&times;</span>
+            <h2>Pague com PIX e Ganhe 5% de Desconto!</h2>
+            <p>Total com Desconto: <span id="pix-total" class="price">R$ 0,00</span></p>
+            
+            <div class="pix-qr-code">
+                <img src="https://via.placeholder.com/200x200?text=QR+CODE+PIX" alt="QR Code PIX">
+            </div>
+
+            <div class="pix-key-container">
+                <input type="text" id="pix-key" value="11999999999" readonly>
+                <button id="copy-pix" class="cep-button">Copiar Chave</button>
+            </div>
+            
+            <p class="pix-info">Seu pedido será processado após a confirmação do pagamento.</p>
+            <button id="btn-back-to-shop" class="buy-button">Voltar e Concluir</button>
+        </div>
+    </div>
+    
     <div id="toast-message" class="toast">
         <i class="fa-solid fa-check"></i> Produto Adicionado!
     </div>
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>Atendimento</h3>
-                <ul>
-                    <li><a href="#">Central de Ajuda</a></li>
-                    <li><a href="#">Rastrear Pedido</a></li>
-                    <li><a href="#">Trocas e Devoluções</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Institucional</h3>
-                <ul>
-                    <li><a href="#">Sobre o Magalu</a></li>
-                    <li><a href="#">Carreiras</a></li>
-                    <li><a href="#">Nossas Lojas</a></li>
-                </ul>
-            </div>
-            <div class="footer-section social-media">
-                <h3>Redes Sociais</h3>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-            </div>
+            <div class="footer-section"><h3>Atendimento</h3><ul><li><a href="#">Central de Ajuda</a></li></ul></div>
+            <div class="footer-section"><h3>Institucional</h3><ul><li><a href="#">Sobre o Magalu</a></li></ul></div>
+            <div class="footer-section social-media"><h3>Redes Sociais</h3><i class="fab fa-facebook-f"></i></div>
         </div>
         <p class="copyright">&copy; 2025 Magalu Clone. Todos os direitos reservados.</p>
     </footer>
