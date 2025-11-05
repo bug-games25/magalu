@@ -30,18 +30,12 @@ body {
     padding: 10px 15px;
 }
 
-/* CORREÇÃO DO LOGO */
+/* REGRA QUE GARANTE O TAMANHO DO LOGO */
 .logo {
-    height: 25px; /* Define a altura para a imagem ser visível */
+    height: 25px; 
 }
 
-.menu-icon, .carrinho-icon {
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* ... (Demais estilos do Header e Search Bar) ... */
+/* ... (demais estilos do header e navegação) ... */
 
 /* Main Content and Container */
 .container {
@@ -49,15 +43,6 @@ body {
     margin: 0 auto;
     padding: 20px 15px;
     min-height: 70vh;
-}
-
-.page-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 25px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
 }
 
 /* Grid de Produtos */
@@ -76,24 +61,11 @@ body {
     transition: transform 0.3s;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-/* REGRA CRÍTICA PARA AS IMAGENS DOS PRODUTOS */
+/* REGRA QUE GARANTE O TAMANHO DAS IMAGENS DOS PRODUTOS */
 .product-card img {
     width: 100%;
     max-height: 150px;
-    object-fit: contain; /* Garante que a imagem inteira seja visível */
-    margin-bottom: 10px;
-}
-
-.product-card h3 {
-    font-size: 16px;
-    font-weight: 400;
-    height: 40px;
-    overflow: hidden;
+    object-fit: contain; 
     margin-bottom: 10px;
 }
 
@@ -103,38 +75,4 @@ body {
     font-weight: 700;
     margin-bottom: 10px;
 }
-
-.add-to-cart-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-/* ... (Restante do CSS para Modais, Footer e Toast) ... */
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 2000; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 30px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-}
-/* ... (Todo o restante do código CSS da minha resposta anterior) ... */
+/* ... (todo o restante do CSS para modais, etc., da minha penúltima resposta) ... */
