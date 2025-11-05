@@ -1,76 +1,234 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce Pro - Magalu Style</title>
-    
-    <link rel="stylesheet" href="style.css?v=pro"> 
-    
-    <script src="https://kit.fontawesome.com/af7678e83f.js" crossorigin="anonymous"></script>
+    <title>Biquínis Verão | Moda Praia Afiliados Amazon</title>
+    <style>
+        /* ESTILOS GERAIS E FONTES */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+        
+        :root {
+            --cor-primaria: #ff4081; /* Rosa Vibrante */
+            --cor-secundaria: #333;
+            --fundo-claro: #fbe4ee; /* ROSA PASTEL */
+            --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Fundo com imagem (AJUSTE O NOME DO ARQUIVO SE NECESSÁRIO) */
+            background: var(--fundo-claro) url('./imagens/fundo-verao.jpg') no-repeat center center fixed;
+            background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+            color: var(--cor-secundaria);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* CABEÇALHO SOFISTICADO (LOGO) */
+        header {
+            background: rgba(255, 255, 255, 0.9); /* Fundo branco com 90% de opacidade */
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(238, 238, 238, 0.5); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: var(--cor-primaria);
+            letter-spacing: 3px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1); 
+        }
+
+        /* GRADE DE PRODUTOS */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+            flex-grow: 1;
+        }
+        
+        /* Estilo para a tag <a> que agora envolve o card */
+        .product-link {
+            text-decoration: none; /* Remove sublinhado do link */
+            color: inherit; /* Mantém a cor do texto padrão */
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.95); /* Fundo do card mais transparente */
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Garante que todos os cards tenham a mesma altura */
+        }
+        .product-link:hover .product-card {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        .product-info {
+            padding: 15px;
+            min-height: 100px; /* Garante espaço para título longo */
+        }
+        .product-info h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        .product-info p {
+            font-weight: 700;
+            color: var(--cor-primaria);
+            font-size: 1.4rem;
+        }
+
+
+        /* ESTILOS DO BOTÃO WHATSAPP NO RODAPÉ (OPCIONAL, MANTIDO) */
+        .footer-whatsapp-btn {
+            display: inline-block;
+            background-color: #25d366; 
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 15px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .footer-whatsapp-btn:hover {
+            background-color: #1fad55;
+            transform: translateY(-2px);
+        }
+
+        /* RODAPÉ (FOOTER) */
+        footer {
+            background: rgba(255, 255, 255, 0.9); 
+            color: var(--cor-secundaria);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px; 
+            border-top: 1px solid rgba(238, 238, 238, 0.5); 
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.03);
+            width: 100%;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                padding: 20px;
+                grid-template-columns: 1fr; /* Força coluna única no celular */
+                gap: 20px; 
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .product-card img {
+                height: 300px; 
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="top-bar">
-            <div class="menu-container">
-                <i class="fa-solid fa-bars menu-icon"></i>
-                <span class="menu-text">Menu</span>
-            </div>
-            
-            <img src="https://omnilogic.com.br/midia/logos/23.png" alt="Logo Magalu" class="logo">
-            
-            <div class="carrinho-icon-container" id="open-cart-btn">
-                <i class="fa-solid fa-bag-shopping carrinho-icon"></i>
-                <span class="carrinho-badge" id="carrinho-contador">0</span>
-            </div>
-        </div>
-        
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Procure por produtos, categorias, marcas...">
-            <button id="search-button" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-    </header>
 
-    <main class="container">
-        <h1 class="page-title" id="page-main-title">🔥 Ofertas Especiais do Dia</h1>
-        
-        <section id="product-list" class="product-grid">
-            </section>
+<header>
+    <h1>BIQUÍNIS VERÃO</h1>
+</header>
 
-        <div id="no-results" class="no-results-message" style="display: none;">
-            <p>Nenhum resultado encontrado para a sua busca.</p>
-        </div>
-    </main>
-    
-    <div id="cart-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" id="close-cart-btn">&times;</span>
-            <h2>Seu Carrinho de Compras</h2>
-            <div id="cart-items-container" class="cart-items-container">
-                </div>
-            <div class="cart-summary">
-                <p>Total: <span id="cart-total-value">R$ 0,00</span></p>
-                <button class="checkout-button">Finalizar Compra</button>
-            </div>
-        </div>
+<div class="container" id="products-container">
     </div>
+
+<footer>
+    <a href="https://api.whatsapp.com/send?phone=5511910736901&text=Olá! Gostaria de falar sobre os biquínis da coleção de verão." 
+        target="_blank" 
+        class="footer-whatsapp-btn">
+        Fale Conosco no WhatsApp
+    </a>
     
-    <div id="toast-message" class="toast">Produto adicionado ao carrinho!</div>
+    <p style="font-size: 0.8rem; margin-top: 10px; color: #555;">
+        Este site é participante do Programa de Associados da Amazon.
+    </p>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Atendimento</h3>
-                <ul><li>Fale Conosco</li><li>Trocas e Devoluções</li></ul>
-            </div>
-            <div class="footer-section">
-                <h3>Institucional</h3>
-                <ul><li>Sobre a Loja</li><li>Trabalhe Conosco</li></ul>
-            </div>
-        </div>
-        <p class="copyright">&copy; 2025 E-commerce Pro Clone. Todos os direitos reservados.</p>
-    </footer>
+    <p>&copy; 2023 BIQUÍNIS VERÃO. Todos os direitos reservados.</p>
+</footer>
 
-    <script src="script.js"></script> 
+<script>
+// --- DADOS DOS PRODUTOS COM LINKS DE AFILIADOS E NOMES OTIMIZADOS ---
+const products = [
+    { id: 1, name: "Biquíni Fitness Transpassado com Bojo e Proteção UV", price: 79.90, img: "./imagens/3a6f3533-80de-408a-9e89-490e028a5eef (1).jpg", link: "https://www.amazon.com.br/Moda-Praia-Transpassado-Sustenta%C3%A7%C3%A3o-Poliamida/dp/B0DB6C6SL8?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-16&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=56ca3b31a20826c0f6e1e2d5e0a82305&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 2, name: "Biquíni Cortininha Clássico | Fio Duplo e Calcinha Levanta Bumbum", price: 99.90, img: "./imagens/biquini2.webp", link: "https://www.amazon.com.br/Biqu%C3%ADni-Calcinha-Piscina-Cortininha-Marquinha/dp/B0FDX3G3LW?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-7&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=0cce808d2598f13203a09afdc4ae0c57&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 3, name: "Biquíni Meia-Taça com Bojo e Calcinha Hot Pant Cintura Alta", price: 89.90, img: "./imagens/biquini3.webp", link: "https://www.amazon.com.br/Biqu%C3%ADni-Feminino-Meia-Ta%C3%A7a-Calcinha-Cintura/dp/B0D9BS1RHD?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-1-spons&ufe=app_do%3Aamzn1.fos.db68964d-7c0e-4bb2-a95c-e5cb9e32eb12&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=e749e206f26171fa344e9973c8c9dc89&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 4, name: "Biquíni Cortininha Tie-Dye com Bojo Removível | Tendência Verão", price: 109.90, img: "./imagens/biquini4.webp", link: "https://www.amazon.com.br/Feminino-Cortininha-Remov%C3%ADvel-Orla-Praia/dp/B0FN8FH5WS?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-3-spons&ufe=app_do%3Aamzn1.fos.6a09f7ec-d911-4889-ad70-de8dd83c8a74&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=71d04b3ada3f7b51d82f7a0488e22bae&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 5, name: "Biquíni Cortininha Hot Summer | Calcinha de Amarrar Lateral", price: 69.90, img: "./imagens/biquini5.jpeg", link: "https://www.amazon.com.br/Feminino-Cortininha-Amarra%C3%A7%C3%A3o-Orla-Praia/dp/B0FNY2WLGN/ref=sr_1_21_sspa?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini+feminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-21-spons&ufe=app_do%3Aamzn1.fos.6a09f7ec-d911-4889-ad70-de8dd83c8a74&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1" },
+    { id: 6, name: "Biquíni Estampa Naval Listrada | Cortininha e Calcinha Clássica", price: 79.90, img: "./imagens/biquini6.jpg", link: "https://www.amazon.com.br/Feminino-Marinheiro-Cortinha-Donna-Martins/dp/B0CKGXJWC4/ref=sr_1_24_sspa?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini+feminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-24-spons&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1" },
+    { id: 7, name: "Biquíni Modelador Plus Size | Calcinha Alta Que Disfarça a Barriga", price: 99.90, img: "./imagens/biquini7.jpg", link: "https://www.amazon.com.br/Biqu%C3%ADni-Feminino-Modelador-Disfar%C3%A7a-Sustenta%C3%A7%C3%A3o/dp/B0D9KWF3XH?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-22-spons&ufe=app_do%3Aamzn1.fos.db68964d-7c0e-4bb2-a95c-e5cb9e32eb12&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=1436f2faba5944029f176447020313d0&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 8, name: "Biquíni Bicolor com Textura Canelada | Top Transpassado e Calcinha Levanta Bumbum", price: 89.90, img: "./imagens/biquini8.jpeg", link: "https://www.amazon.com.br/Biqu%C3%ADni-Bicolor-Transpassado-Levanta-Textura/dp/B0CGM5QQG9?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-40&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=1464d94bf3a858d020e1a111b86174e3&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 9, name: "Maiô/Macaquinho com Proteção UV | Manga Longa e Estampa Floral Conservadora", price: 109.90, img: "./imagens/biquini9.jpg", link: "https://www.amazon.com.br/feminino-estampado-conservador-comprida-dividida/dp/6598667305?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini+feminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-50&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&linkCode=ll1&tag=modaverao-20&linkId=7108a46cd5077c025bcfa32a3897504b&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 10, name: "Biquíni Ideal para Marquinha | Top Cortininha Regulável e Calcinha Delta", price: 79.90, img: "./imagens/biquini10.webp", link: "https://www.amazon.com.br/Biquini-Delta-Marquinha-Cortininha-Regular/dp/B0FHQSXQ9N?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini+feminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-56&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&linkCode=ll1&tag=modaverao-20&linkId=c3bc3528a68c5e1d58cea5f4e637b218&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 11, name: "Biquíni Top com Aro e Bojo | Sustentação Reforçada para Seios Grandes", price: 69.90, img: "./imagens/biquini11.webp", link: "https://www.amazon.com.br/Biqu%C3%ADni-Feminino-Sustenta%C3%A7%C3%A3o-Num%C3%A9rico-Meninas/dp/B0FTT42LRF?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.wB3Np9qIcE62dIAbFhsGm-e7ipO6OjM29EHBm7kOSxx3ZSdFl4PnSEPPRzkO09iA0IyoSWi24Qm7FgrRa-h0Ot0HyWMkQ7365HvbUT757H2wn8BW2ZPuYRqoY1LNLLlBCAiaRAzVqUFfEy_iujzSZ-LcrrzwFPve_GQaKGDloEx0gZPUguYQb2sXB6Q9sBIMA5-rvoGffD_7SmxicjV07-ojLkcrU4SIA8ajlQtjsqSSL3h75BvcAubLxRzpinoLSPcsLlRJatsI4QHwqQPVb8Ef8Wuo_NAJCGn53IJ5UU.nTpsDu8_WLjeUFWL4tNPE0l4jm4oNKWcDLjRn5jUO1g&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762339494&sprefix=biqui%2Caps%2C207&sr=8-59-spons&ufe=app_do%3Aamzn1.fos.db68964d-7c0e-4bb2-a95c-e5cb9e32eb12&sp_csd=d2lkZ2V0TmFtZT1zcF9idGY&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=7b54cffcd28b26735f3e8f81e2899fb3&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 12, name: "Biquíni Cropped de Praia com Bojo | Alta Sustentação e Alças Confortáveis", price: 99.90, img: "./imagens/biquini12.webp", link: "https://www.amazon.com.br/Conjunto-Sustenta%C3%A7%C3%A3o-Calcinha-Embutida-Praia/dp/B0F1YTLX3L?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.cFj5BL_lGppiwsr4P51uo__b7EBoGqJbgcCpbArbVlkbP_CEz3iwyAve05bTaVXv4dRvWxkoRyFUEBm84WJtiZEqKOVgbst7_YHDb5XmqUk.Sz0rBDNCkkSV4t9-nh0ugBjY3Etx0isDn8em3OSPfjI&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762340457&sprefix=biqui%2Caps%2C207&sr=8-53&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&xpid=aA-14qeplZAbL&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=3642dbfebf679e7a602f877d26c8705e&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 13, name: "Biquíni Asa Delta Hot | Perfeito para Bronzeado e Marquinha Fina", price: 89.90, img: "./imagens/biquini13.jpg", link: "https://www.amazon.com.br/Biqu%C3%ADni-Marquinha-Modelo-Bronzear-regular/dp/B0BZT792KH?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.cFj5BL_lGppiwsr4P51uo__b7EBoGqJbgcCpbArbVlkbP_CEz3iwyAve05bTaVXv4dRvWxkoRyFUEBm84WJtiZEqKOVgbst7_YHDb5XmqUk.Sz0rBDNCkkSV4t9-nh0ugBjY3Etx0isDn8em3OSPfjI&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762340457&sprefix=biqui%2Caps%2C207&sr=8-57&xpid=aA-14qeplZAbL&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=c7941f3eb3513203d4d13226f09bc6f2&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 14, name: "Biquíni Dupla Face Cortininha | 2 em 1 para Piscina e Praia", price: 109.90, img: "./imagens/biquini14.jpg", link: "https://www.amazon.com.br/Biqu%C3%ADni-Dupla-Piscina-Cortininha-Calcinha/dp/B0CRVX7WQM?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.U6gMW2XngpAilRr8ubRGBIk-BPpU8dAcFVcd_SpEqdHVs2bV23SxToZiVHkj82nReiCEftsdesfAZn0G_AFu1V18X71pAxVVh2Zv-xylHYDJLZ5Golldvy1zS5EwlOy3678lPGCVJKLjym-9AAXZAsK6mb4qI1DQFPgpV39Sjs5k0ZqDicyKsFnkXwF0RgHwqsMjX0E9gOin1pvGtuqPQw2vzp2w3FQBrqf7pg0RGNjv9cr0EI4RuVamRhYW0rqtLy1yElqT_zANk6jgmULpXL8Ef8Wuo_NAJCGn53IJ5UU.4-cWsFFyCgm9k0YN4nX-gVP6IwNE3gWAio0jndcHzf0&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762340457&sprefix=biqui%2Caps%2C207&sr=8-51&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&xpid=aA-14qeplZAbL&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=dc5b3914e5afa90dab1aa26287ba93ea&language=pt_BR&ref_=as_li_ss_tl" },
+    { id: 15, name: "Biquíni Lingerie Sensual com Renda | Top Cropped e Calcinha Fio Dental", price: 79.90, img: "./imagens/biquini15.webp", link: "https://www.amazon.com.br/EVAbaby-Conjunto-biqu%C3%ADni-feminino-lingerie/dp/B093GY3FG5?crid=ICL78E4GJ4XD&dib=eyJ2IjoiMSJ9.U6gMW2XngpAilRr8ubRGBIk-BPpU8dAcFVcd_SpEqdHVs2bV23SxToZiVHkj82nReiCEftsdesfAZn0G_AFu1V18X71pAxVVh2Zv-xylHYDJLZ5Golldvy1zS5EwlOy3678lPGCVJKLjym-9AAXZAsK6mb4qI1DQFPgpV39Sjs5k0ZqDicyKsFnkXwF0RgHwqsMjX0E9gOin1pvGtuqPQw2vzp2w3FQBrqf7pg0RGNjv9cr0EI4RuVamRhYW0rqtLy1yElqT_zANk6jgmULpXL8Ef8Wuo_NAJCGn53IJ5UU.4-cWsFFyCgm9k0YN4nX-gVP6IwNE3gWAio0jndcHzf0&dib_tag=se&keywords=biquini%2Bfeminino&qid=1762340457&sprefix=biqui%2Caps%2C207&sr=8-80&ufe=app_do%3Aamzn1.fos.6a09f7ec-d911-4889-ad70-de8dd83c8a74&xpid=aA-14qeplZAbL&th=1&psc=1&linkCode=ll1&tag=modaverao-20&linkId=3e078ec73da499a05cacc8198b4b76de&language=pt_BR&ref_=as_li_ss_tl" },
+];
+
+// --- FUNÇÕES DO CATÁLOGO (SIMPLIFICADAS) ---
+
+function renderProducts() {
+    const container = document.getElementById('products-container');
+    container.innerHTML = '';
+    
+    products.forEach(p => {
+        // 1. Cria a tag <a> que envolve todo o card e usa o link de afiliado
+        const link = document.createElement('a');
+        link.href = p.link;
+        link.target = "_blank"; // Abre o link em uma nova aba
+        link.className = 'product-link'; 
+        
+        const div = document.createElement('div');
+        div.className = 'product-card';
+        
+        // 2. Cria a estrutura HTML interna do card
+        div.innerHTML = `
+            <img src="${p.img}" alt="${p.name}">
+            <div class="product-info">
+                <h3>${p.name}</h3>
+                <p>A partir de R$ ${p.price.toFixed(2)}</p>
+            </div>
+        `;
+        
+        // 3. Adiciona o card (div) dentro do link (a)
+        link.appendChild(div); 
+        container.appendChild(link);
+    });
+}
+
+// --- INICIALIZAÇÃO ---
+document.addEventListener('DOMContentLoaded', () => {
+    renderProducts();
+});
+</script>
+
 </body>
 </html>
