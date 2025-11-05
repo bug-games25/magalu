@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magalu Clone - Loja Completa</title>
+    <title>Magalu Store - Produtos Eletrônicos</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/af7678e83f.js" crossorigin="anonymous"></script>
 </head>
@@ -24,7 +24,7 @@
     </header>
 
     <main class="container">
-        <h1 class="page-title">Ofertas do Dia</h1>
+        <h1 class="page-title">🔥 Ofertas Especiais do Dia</h1>
         
         <section id="product-list" class="product-grid">
             </section>
@@ -33,14 +33,14 @@
     <div id="cart-modal" class="modal">
         <div class="modal-content">
             <span class="close-button" data-modal="cart-modal">&times;</span>
-            <h2>Seu Carrinho (<span id="cart-item-count-modal">0</span>)</h2>
+            <h2 class="modal-title">🛒 Seu Carrinho (<span id="cart-item-count-modal">0</span>)</h2>
             <div id="cart-items-container" class="cart-items-container">
                 </div>
 
-            <p id="empty-cart-message" class="empty-cart-message" style="display: none;">Seu carrinho está vazio.</p>
+            <p id="empty-cart-message" class="empty-cart-message" style="display: none;">Seu carrinho está vazio. Adicione itens para continuar.</p>
             
             <div id="cart-summary" class="cart-summary" style="display: none;">
-                <p class="total-line">Total: <span id="total-final">R$ 0,00</span></p>
+                <p class="total-line">Total Final: <span id="total-final" class="total-value">R$ 0,00</span></p>
                 <button id="btn-goto-checkout" class="buy-button">FINALIZAR COMPRA</button>
             </div>
         </div>
@@ -49,20 +49,21 @@
     <div id="checkout-modal" class="modal">
         <div class="modal-content pix-box">
             <span class="close-button" data-modal="checkout-modal">&times;</span>
-            <h2>Pague com PIX e Ganhe 5% de Desconto!</h2>
-            <p>Total com Desconto: <span id="pix-total" class="price">R$ 0,00</span></p>
+            <h2 class="modal-title">💸 Pague com PIX e Ganhe 5% de Desconto!</h2>
+            <p class="pix-total-label">Valor com Desconto:</p>
+            <p class="price" id="pix-total">R$ 0,00</p>
             
             <div class="pix-qr-code">
                 <img src="https://via.placeholder.com/200x200?text=QR+CODE+PIX" alt="QR Code PIX">
             </div>
 
             <div class="pix-key-container">
-                <input type="text" id="pix-key" value="11999999999" readonly>
+                <input type="text" id="pix-key" value="0123456789ABCDEF" readonly>
                 <button id="copy-pix" class="cep-button">Copiar Chave</button>
             </div>
             
-            <p class="pix-info">Seu pedido será processado após a confirmação do pagamento.</p>
-            <button id="btn-back-to-shop" class="buy-button">Voltar e Concluir</button>
+            <p class="pix-info">O pedido será processado após a confirmação. Chave válida por 30 minutos.</p>
+            <button id="btn-back-to-shop" class="buy-button">Voltar à Loja</button>
         </div>
     </div>
     
@@ -72,11 +73,11 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section"><h3>Atendimento</h3><ul><li><a href="#">Central de Ajuda</a></li></ul></div>
-            <div class="footer-section"><h3>Institucional</h3><ul><li><a href="#">Sobre o Magalu</a></li></ul></div>
-            <div class="footer-section social-media"><h3>Redes Sociais</h3><i class="fab fa-facebook-f"></i></div>
+            <div class="footer-section"><h3>Atendimento</h3><ul><li><a href="#">Central de Ajuda</a></li><li><a href="#">Fale Conosco</a></li></ul></div>
+            <div class="footer-section"><h3>Institucional</h3><ul><li><a href="#">Sobre o Magalu</a></li><li><a href="#">Nossas Lojas</a></li></ul></div>
+            <div class="footer-section social-media"><h3>Redes Sociais</h3><i class="fab fa-facebook-f"></i><i class="fab fa-instagram"></i></div>
         </div>
-        <p class="copyright">&copy; 2025 Magalu Clone. Todos os direitos reservados.</p>
+        <p class="copyright">&copy; 2025 Magalu Clone. Criado para portfólio.</p>
     </footer>
 
     <script src="script.js"></script> 
