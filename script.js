@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Dados dos Produtos (Com URLs de Imagem Mais Reais) ---
+    // --- 1. Dados dos Produtos (Com URLs de Imagem Reais/Simuladas) ---
     const PRODUCTS = [
         { id: 1, name: "PlayStation 5 Slim (825GB) - Edição Digital", price: 3999.00, image: "https://images.samsung.com/is/image/samsung/p6pim/br/ps5-slim-digital/ps5-slim-digital-front-black-thumb.png?$lazy-webp$" },
         { id: 2, name: "Smart TV Samsung 50' 4K Crystal UHD", price: 2899.00, image: "https://images.samsung.com/is/image/samsung/br-uhd-au8000/dynamic-black-1.png?$lazy-webp$" },
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 6, name: "Notebook Gamer Dell G15 Core i7", price: 6199.00, image: "https://m.media-amazon.com/images/I/71YyM-nJ+OL._AC_UF1000,1000_QL80_.jpg" }
     ];
 
-    // --- 2. Variáveis e Utilidades (Manutenção Simplificada) ---
+    // --- 2. Variáveis e Utilidades ---
     const cartModal = document.getElementById('cart-modal');
     const checkoutModal = document.getElementById('checkout-modal');
     const openCartBtn = document.getElementById('open-cart-btn');
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         PRODUCTS.forEach(product => {
             const card = document.createElement('div');
             card.className = 'product-card';
+            // A TAG IMG É CRIADA AQUI USANDO O LINK DO ARRAY
             card.innerHTML = `
                 <img src="${product.image}" alt="${product.name}">
                 <h3>${product.name}</h3>
@@ -72,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
-    // --- 4. Lógica do Carrinho ---
+    // --- 4. Lógica do Carrinho (Funcionalidade) ---
     const addToCart = (productId) => {
         const cart = getCart();
         const existingItem = cart.find(item => item.id === productId);
@@ -148,13 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const cart = getCart();
         let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         
-        // Aplica o desconto de 5% (simulado) para PIX
         const totalPix = total * 0.95; 
         
         document.getElementById('pix-total').textContent = formatCurrency(totalPix);
     };
 
-    // --- 6. Event Listeners de Navegação ---
+    // --- 6. Event Listeners ---
     
     openCartBtn.addEventListener('click', () => {
         renderCart();
@@ -182,7 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     btnBackToShop.addEventListener('click', () => {
-        // Zera o carrinho e simula a conclusão da compra
         localStorage.removeItem('magaluCart');
         updateCartCount();
         closeModal(checkoutModal);
