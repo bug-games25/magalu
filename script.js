@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Dados dos Produtos (Simulação de Banco de Dados) ---
+    // --- 1. Dados dos Produtos (Com URLs de Imagem Reais/Simuladas) ---
     const PRODUCTS = [
-        { id: 1, name: "PlayStation 5 Slim (825GB) - Edição Digital", price: 3999.00, image: "https://via.placeholder.com/250x150?text=PS5+Slim" },
-        { id: 2, name: "Smart TV Samsung 50' 4K Crystal UHD", price: 2899.00, image: "https://via.placeholder.com/250x150?text=TV+50+4K" },
-        { id: 3, name: "Smartphone Samsung Galaxy S23 128GB", price: 3599.00, image: "https://via.placeholder.com/250x150?text=S23+128GB" },
-        { id: 4, name: "iPhone 15 Pro Max 256GB - Azul Titanium", price: 8499.00, image: "https://via.placeholder.com/250x150?text=iPhone+15" },
-        { id: 5, name: "Home Theater JBL com Subwoofer 5.1 Canais", price: 1299.00, image: "https://via.placeholder.com/250x150?text=JBL+Home+Theater" },
-        { id: 6, name: "Notebook Gamer Dell G15 Core i7", price: 6199.00, image: "https://via.placeholder.com/250x150?text=Notebook+Gamer" }
+        { id: 1, name: "PlayStation 5 Slim (825GB) - Edição Digital", price: 3999.00, image: "https://images.samsung.com/is/image/samsung/p6pim/br/ps5-slim-digital/ps5-slim-digital-front-black-thumb.png?$lazy-webp$" },
+        { id: 2, name: "Smart TV Samsung 50' 4K Crystal UHD", price: 2899.00, image: "https://images.samsung.com/is/image/samsung/br-uhd-au8000/dynamic-black-1.png?$lazy-webp$" },
+        { id: 3, name: "Smartphone Samsung Galaxy S23 128GB", price: 3599.00, image: "https://images.samsung.com/is/image/samsung/p6pim/br/galaxy-s23/gallery/br-galaxy-s23-s911-sm-s911bzkgzto-thumb-534720641.png?$lazy-webp$" },
+        { id: 4, name: "iPhone 15 Pro Max 256GB - Azul Titanium", price: 8499.00, image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-blue-titanium-select?wid=940&hei=1112&fmt=png-alpha&.v=1693082269550" },
+        { id: 5, name: "Home Theater JBL com Subwoofer 5.1 Canais", price: 1299.00, image: "https://images.unsplash.com/photo-1627885060868-b8f4f9f7d0a2?q=80&w=150&h=150&fit=crop&auto=format" },
+        { id: 6, name: "Notebook Gamer Dell G15 Core i7", price: 6199.00, image: "https://m.media-amazon.com/images/I/71YyM-nJ+OL._AC_UF1000,1000_QL80_.jpg" }
     ];
 
-    // --- 2. Variáveis do DOM e Utilidades ---
+    // --- 2. Variáveis e Utilidades (Manutenção Simplificada) ---
     const cartModal = document.getElementById('cart-modal');
     const checkoutModal = document.getElementById('checkout-modal');
     const openCartBtn = document.getElementById('open-cart-btn');
@@ -25,17 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveCart = (cart) => localStorage.setItem('magaluCart', JSON.stringify(cart));
     const formatCurrency = (value) => `R$ ${value.toFixed(2).replace('.', ',')}`;
 
-    // --- 3. Funções de Interface ---
-    
-    // Função para mostrar a mensagem de sucesso
-    const showToast = (message) => {
-        const toastMessage = document.getElementById('toast-message');
-        toastMessage.innerHTML = `<i class="fa-solid fa-check"></i> ${message}`;
-        toastMessage.classList.add('show');
-        setTimeout(() => toastMessage.classList.remove('show'), 3000);
-    };
-
-    // Função que atualiza o contador do carrinho no cabeçalho
     const updateCartCount = () => {
         const cart = getCart();
         const count = cart.reduce((sum, item) => sum + 1, 0); 
@@ -47,13 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
              document.getElementById('cart-item-count-modal').textContent = count;
         }
     };
-    
-    // Função para abrir e fechar modais
+
+    const showToast = (message) => {
+        const toastMessage = document.getElementById('toast-message');
+        toastMessage.innerHTML = `<i class="fa-solid fa-check"></i> ${message}`;
+        toastMessage.classList.add('show');
+        setTimeout(() => toastMessage.classList.remove('show'), 3000);
+    };
+
     const openModal = (modalElement) => modalElement.style.display = 'block';
     const closeModal = (modalElement) => modalElement.style.display = 'none';
 
-    // --- 4. Lógica da Loja (Renderização de Produtos) ---
-    
+
+    // --- 3. Renderização de Produtos (index.html) ---
     const renderProducts = () => {
         if (!productListContainer) return; 
 
@@ -76,9 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     };
-
-    // --- 5. Lógica do Carrinho ---
     
+    // --- 4. Lógica do Carrinho ---
     const addToCart = (productId) => {
         const cart = getCart();
         const existingItem = cart.find(item => item.id === productId);
@@ -96,13 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartCount();
         showToast('Produto adicionado ao carrinho!');
     };
-
+    
     const removeFromCart = (productId) => {
         let cart = getCart();
-        // Remove completamente o item do carrinho
         cart = cart.filter(item => item.id !== productId);
         saveCart(cart);
-        renderCart(); // Renderiza novamente
+        renderCart(); 
         updateCartCount();
         showToast('Item removido.');
     };
@@ -139,10 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cartContainer.appendChild(cartItem);
         });
         
-        // Atualiza o total
         document.getElementById('total-final').textContent = formatCurrency(subtotal);
 
-        // Adiciona listener para remover item
         document.querySelectorAll('.remove-button').forEach(button => {
             button.addEventListener('click', (e) => {
                 const productId = parseInt(e.target.dataset.id);
@@ -151,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // --- 6. Lógica de Checkout PIX ---
+    // --- 5. Lógica de Checkout PIX ---
     
     const setupCheckout = () => {
         const cart = getCart();
@@ -163,15 +154,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('pix-total').textContent = formatCurrency(totalPix);
     };
 
-    // --- 7. Event Listeners ---
+    // --- 6. Event Listeners de Navegação ---
     
-    // Abrir o Modal do Carrinho
     openCartBtn.addEventListener('click', () => {
         renderCart();
         openModal(cartModal);
     });
 
-    // Fechar Modais (usando o 'x')
     document.querySelectorAll('.close-button').forEach(button => {
         button.addEventListener('click', (e) => {
             const modalId = e.target.dataset.modal;
@@ -179,14 +168,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Finalizar Compra -> Abrir Modal de Checkout
     btnGotoCheckout.addEventListener('click', () => {
         closeModal(cartModal);
         setupCheckout();
         openModal(checkoutModal);
     });
     
-    // Copiar Chave PIX
     copyPixButton.addEventListener('click', () => {
         const pixKeyInput = document.getElementById('pix-key');
         pixKeyInput.select();
@@ -194,17 +181,16 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast('Chave PIX copiada!');
     });
     
-    // Voltar à Loja do Checkout (simula a conclusão)
     btnBackToShop.addEventListener('click', () => {
-        // Zera o carrinho após simular o pagamento
+        // Zera o carrinho e simula a conclusão da compra
         localStorage.removeItem('magaluCart');
         updateCartCount();
         closeModal(checkoutModal);
-        showToast('Compra finalizada com sucesso! Seu carrinho foi zerado.');
+        showToast('Compra finalizada! Seu carrinho foi zerado.');
     });
 
 
-    // --- 8. Inicialização ---
+    // --- 7. Inicialização ---
     updateCartCount();
     renderProducts();
 });
