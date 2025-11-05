@@ -3,45 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magalu Store - Clone Funcional</title>
+    <title>E-commerce Pro - Magalu Style</title>
     
-    <link rel="stylesheet" href="style.css?v=2.0"> 
+    <link rel="stylesheet" href="style.css?v=pro"> 
+    
     <script src="https://kit.fontawesome.com/af7678e83f.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="header">
         <div class="top-bar">
-            <i class="fa-solid fa-bars menu-icon"></i>
+            <div class="menu-container">
+                <i class="fa-solid fa-bars menu-icon"></i>
+                <span class="menu-text">Menu</span>
+            </div>
+            
             <img src="https://omnilogic.com.br/midia/logos/23.png" alt="Logo Magalu" class="logo">
+            
             <div class="carrinho-icon-container" id="open-cart-btn">
                 <i class="fa-solid fa-bag-shopping carrinho-icon"></i>
                 <span class="carrinho-badge" id="carrinho-contador">0</span>
             </div>
         </div>
+        
         <div class="search-bar">
-            <input type="text" placeholder="Procure no Magalu">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="search-input" placeholder="Procure por produtos, categorias, marcas...">
+            <button id="search-button" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </header>
 
     <main class="container">
-        <h1 class="page-title">🔥 Ofertas Especiais do Dia</h1>
+        <h1 class="page-title" id="page-main-title">🔥 Ofertas Especiais do Dia</h1>
         
         <section id="product-list" class="product-grid">
             </section>
+
+        <div id="no-results" class="no-results-message" style="display: none;">
+            <p>Nenhum resultado encontrado para a sua busca.</p>
+        </div>
     </main>
     
-    <div id="cart-modal" class="modal">...</div>
-    <div id="checkout-modal" class="modal">...</div>
-    <div id="toast-message" class="toast">...</div>
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-cart-btn">&times;</span>
+            <h2>Seu Carrinho de Compras</h2>
+            <div id="cart-items-container" class="cart-items-container">
+                </div>
+            <div class="cart-summary">
+                <p>Total: <span id="cart-total-value">R$ 0,00</span></p>
+                <button class="checkout-button">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="toast-message" class="toast">Produto adicionado ao carrinho!</div>
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section"><h3>Atendimento</h3></div>
-            <div class="footer-section"><h3>Institucional</h3></div>
-            <div class="footer-section social-media"><h3>Redes Sociais</h3></div>
+            <div class="footer-section">
+                <h3>Atendimento</h3>
+                <ul><li>Fale Conosco</li><li>Trocas e Devoluções</li></ul>
+            </div>
+            <div class="footer-section">
+                <h3>Institucional</h3>
+                <ul><li>Sobre a Loja</li><li>Trabalhe Conosco</li></ul>
+            </div>
         </div>
-        <p class="copyright">&copy; 2025 Magalu Clone.</p>
+        <p class="copyright">&copy; 2025 E-commerce Pro Clone. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script> 
