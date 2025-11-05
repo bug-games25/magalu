@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Dados dos Produtos (Com URLs de Imagem Reais/Simuladas) ---
+    // --- 1. Dados dos Produtos (Com URLs de Imagem Mais Reais) ---
     const PRODUCTS = [
         { id: 1, name: "PlayStation 5 Slim (825GB) - Edição Digital", price: 3999.00, image: "https://images.samsung.com/is/image/samsung/p6pim/br/ps5-slim-digital/ps5-slim-digital-front-black-thumb.png?$lazy-webp$" },
         { id: 2, name: "Smart TV Samsung 50' 4K Crystal UHD", price: 2899.00, image: "https://images.samsung.com/is/image/samsung/br-uhd-au8000/dynamic-black-1.png?$lazy-webp$" },
