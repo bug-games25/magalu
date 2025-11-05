@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento PIX - Magalu Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/af7678e83f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <i class="fa-solid fa-receipt menu-icon"></i>
+            <img src="https://omnilogic.com.br/midia/logos/23.png" alt="Logo Magalu" class="logo">
+            <div class="carrinho-icon-container">
+                <i class="fa-solid fa-lock carrinho-icon"></i>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Procure no Magalu">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        </div>
+    </header>
+
+    <main class="container checkout-page">
+        <h1 class="page-title">Finalizar Pagamento</h1>
+        
+        <div class="pix-box">
+            <h2>Pague com PIX e Ganhe 5% de Desconto!</h2>
+            <p>Total a pagar: <span id="pix-total">R$ 0,00</span></p>
+            
+            <div class="pix-qr-code">
+                <img src="https://via.placeholder.com/200x200?text=QR+CODE+PIX" alt="QR Code PIX">
+            </div>
+
+            <p class="pix-label">Chave PIX Copia e Cola:</p>
+            <div class="pix-key-container">
+                <input type="text" id="pix-key" value="11999999999" readonly>
+                <button id="copy-pix" class="cep-button">Copiar Chave</button>
+            </div>
+            
+            <p class="pix-info">Após o pagamento, o pedido será confirmado em até 5 minutos.</p>
+            <a href="index.html" class="buy-button">Voltar à Loja</a>
+        </div>
+    </main>
+    
+    <div id="toast-message" class="toast">
+        <i class="fa-solid fa-copy"></i> Chave PIX copiada!
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section"><h3>Atendimento</h3><ul><li><a href="#">Central de Ajuda</a></li></ul></div>
+            <div class="footer-section"><h3>Institucional</h3><ul><li><a href="#">Sobre o Magalu</a></li></ul></div>
+            <div class="footer-section social-media"><h3>Redes Sociais</h3><i class="fab fa-facebook-f"></i></div>
+        </div>
+        <p class="copyright">&copy; 2025 Magalu Clone. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>
